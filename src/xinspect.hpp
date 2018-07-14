@@ -262,6 +262,7 @@ namespace xcpp
                     if (c == "class" || c == "struct")
                     {
                         node = doc.find_node(predicate).child("filename").child_value();
+                        std::cout << "Node predicate: " << doc.find_node(predicate) << std::endl;
                     }
                     else
                     {
