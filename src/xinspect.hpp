@@ -200,8 +200,7 @@ namespace xcpp
         if (std::regex_search(to_inspect, method, std::regex(R"((.*)\.(\w*)$)")))
         {
             std::string typename_ = find_type(method[1], m_processor);
-            std::cout << "returned from find_type: typename_: " << std::endl;
-
+            
             if (!typename_.empty())
             {
                 for (xeus::xjson::const_iterator it = tagconfs.cbegin(); it != tagconfs.cend(); ++it)
@@ -236,14 +235,20 @@ namespace xcpp
             else
             {
                 std::string typename_ = find_type(to_inspect, m_processor);
+
+                std::cout << "returned from find_type: typename_: " << typename_ << std::endl;
                 find_string = (typename_.empty()) ? to_inspect : typename_;
             }
+
+            std::cout << "find_string: " << find_string << std::endl;
 
             for (xeus::xjson::const_iterator it = tagconfs.cbegin(); it != tagconfs.cend(); ++it)
             {
                 url = it->at("url");
                 tagfile = it->at("tagfile");
                 std::string filename = tagfiles_dir + "/" + tagfile;
+
+                std::cout << "tag filename: " << filename << std::endl;
                 pugi::xml_document doc;
                 pugi::xml_parse_result result = doc.load_file(filename.c_str());
                 for (auto c : check)
