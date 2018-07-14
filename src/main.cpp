@@ -54,6 +54,10 @@ interpreter_ptr build_interpreter(int argc, char** argv)
 
 int main(int argc, char* argv[])
 {
+
+    std::cout << XCPP_TAGFILES_DIR << std::endl;
+    std::cout << XCPP_TAGCONFS_DIR << std::endl;
+
     std::string file_name = (argc == 1) ? "connection.json" : extract_filename(argc, argv);
     xeus::xconfiguration config = xeus::load_configuration(file_name);
 
