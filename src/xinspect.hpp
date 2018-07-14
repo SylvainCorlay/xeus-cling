@@ -177,6 +177,8 @@ namespace xcpp
     void inspect(const std::string& code, xeus::xjson& kernel_res, cling::MetaProcessor& m_processor)
     {
         xeus::xjson tagconfs = read_tagconfs(XCPP_TAGCONFS_DIR);
+
+        std::cout << "tagconfs: " << tagconfs << std::endl;
         std::string tagfiles_dir = XCPP_TAGFILES_DIR;
 
         std::vector<std::string> check{"class", "struct", "function"};
@@ -196,6 +198,7 @@ namespace xcpp
         if (std::regex_search(to_inspect, method, std::regex(R"((.*)\.(\w*)$)")))
         {
             std::string typename_ = find_type(method[1], m_processor);
+            std::cout << "returned from find_type: typename_: " << std::endl;
 
             if (!typename_.empty())
             {
