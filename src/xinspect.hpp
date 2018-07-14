@@ -194,6 +194,9 @@ namespace xcpp
         std::smatch method;
         std::string to_inspect = inspect[1];
 
+        std::cout << "to_inspect: " << to_inspect << std::endl;
+        std::cout << "method: " << method << std::endl;
+
         // Method or variable of class found (xxxx.yyyy)
         if (std::regex_search(to_inspect, method, std::regex(R"((.*)\.(\w*)$)")))
         {
