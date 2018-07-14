@@ -267,7 +267,7 @@ namespace xcpp
                     {
                         node = doc.find_node(predicate).child("anchorfile").child_value();
                     }
-                    std::cout << "node: " << std::endl;
+                    std::cout << "node: " << node << std::endl;
                     if (!node.empty())
                     {
                         inspect_result = url + node;
