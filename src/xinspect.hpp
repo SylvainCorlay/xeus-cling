@@ -246,6 +246,7 @@ namespace xcpp
             {
                 url = it->at("url");
                 tagfile = it->at("tagfile");
+                std::cout << "url: " << url << std::endl;
                 std::string filename = tagfiles_dir + "/" + tagfile;
 
                 std::cout << "tag filename: " << filename << std::endl;
@@ -254,6 +255,8 @@ namespace xcpp
                 for (auto c : check)
                 {
                     node_predicate predicate{c, find_string};
+                    std::cout << "check: " << c << std::endl;
+                    std::cout << "find_string: " << find_string << std::endl;
                     std::string node;
 
                     if (c == "class" || c == "struct")
@@ -264,7 +267,7 @@ namespace xcpp
                     {
                         node = doc.find_node(predicate).child("anchorfile").child_value();
                     }
-
+                    std::cout << "node: " << std::endl;
                     if (!node.empty())
                     {
                         inspect_result = url + node;
