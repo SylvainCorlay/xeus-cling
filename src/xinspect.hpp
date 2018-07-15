@@ -208,7 +208,6 @@ namespace xcpp
                     url = it->at("url");
                     tagfile = it->at("tagfile");
                     std::string filename = tagfiles_dir + "/" + tagfile;
-                    std::cout << "filename: " << filename << std::endl;
                     pugi::xml_document doc;
                     pugi::xml_parse_result result = doc.load_file(filename.c_str());
                     class_member_predicate predicate{typename_, "function", method[2]};
