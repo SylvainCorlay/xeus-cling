@@ -253,6 +253,8 @@ namespace xcpp
                 pugi::xml_parse_result result = doc.load_file(filename.c_str());
                 std::cout << "Parse result: " << result << std::endl;
                 std::cout << "Description: " << result.description() << std::endl;
+                std::cout << "ERROR:" << doc.child("node").attribute("attr").value() << "]\n";
+                std::cout << "Error offset: " << result.offset << "]\n\n";
                 for (auto c : check)
                 {
                     node_predicate predicate{c, find_string};
